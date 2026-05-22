@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ben Brown</title>
+  <style>
+
+    /* ── DESIGN TOKENS ── */
+    :root {
+      --bg:      #EEF2EA;
+      --bg2:     #DFE8D8;
+      --text:    #1A2E16;
+      --accent:  #2D5E24;
+      --muted:   #5F7858;
+      --border:  #A3BC96;
+      --nav-bg:  #1A2E16;
+    }
+
+    /* ── RESET & BASE ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Georgia, serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1 { font-size: 2.8rem; font-weight: bold; margin-bottom: 0.5rem; color: var(--text); }
+    h2 { font-size: 1.6rem; color: var(--accent); margin-bottom: 0.25rem; }
+    h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text); }
+    h4 {
+      font-size: 1rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    p  { color: var(--text); margin-bottom: 1rem; }
+    ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.4rem; color: var(--text); }
+
+    /* ── LINKS ── */
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: var(--nav-bg);
+      display: flex;
+      gap: 2rem;
+      padding: 0 2rem;
+      height: 56px;
+      align-items: center;
+      z-index: 100;
+    }
+
+    nav > a {
+      color: var(--bg);
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    nav > a:hover { color: var(--border); text-decoration: none; }
+
+    /* ── DROPDOWN ── */
+    .nav-item { position: relative; }
+
+    .nav-item > a {
+      color: var(--bg);
+      font-family: Georgia, serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-item > a:hover { color: var(--border); text-decoration: none; }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--nav-bg);
+      border: 1px solid var(--border);
+      min-width: 280px;
+      padding: 0.5rem 0;
+    }
+
+    .nav-item:hover .dropdown { display: block; }
+
+    .dropdown a {
+      display: block;
+      padding: 0.5rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--border);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .dropdown a:hover {
+      background: rgba(255,255,255,0.07);
+      color: white;
+      text-decoration: none;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--border);
+      margin: 1.5rem auto;
+      display: block;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero a {
+      display: inline-block;
+      margin: 0.25rem 0.5rem;
+      padding: 0.6rem 1.4rem;
+      border: 2px solid var(--accent);
+      border-radius: 4px;
+      color: var(--accent);
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .hero a:hover {
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+    }
+
+    /* ── SECTION HEADERS ── */
+    .section-header {
+      max-width: 900px;
+      margin: 4rem auto 0;
+      padding: 3rem 2rem 0;
+      border-top: 2px solid var(--border);
+    }
+
+    .section-header h1 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+    }
+
+    /* ── PROJECT CARDS ── */
+    .tab {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .tab h2 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.25rem;
+    }
+
+    .tab h3 { font-size: 1.6rem; margin-bottom: 1.25rem; }
+
+    /* ── PROJECT IMAGES ── */
+    .tab img {
+      width: 100%;
+      max-width: 560px;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      display: block;
+      margin: 1.25rem 0;
+    }
+
+    /* ── PROJECT LINKS ── */
+    .project-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .project-links a {
+      padding: 0.5rem 1.1rem;
+      border: 1px solid var(--accent);
+      border-radius: 3px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      transition: all 0.2s;
+    }
+
+    .project-links a:hover {
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+    }
+
+  </style>
+</head>
+<body id="top">
+
+  <!-- NAV -->
+  <nav>
+    <a href="#top">Home</a>
+    <div class="nav-item">
+      <a href="#class-projects">Class Projects ▾</a>
+      <div class="dropdown">
+        <a href="#E80">E80: Experimental Engineering</a>
+        <a href="#E190">E190: Sustainability and Resiliency</a>
+        <a href="#E4">E4: Engineering Design and Manufacturing</a>
+        <a href="#E79">E79: Systems Engineering</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#personal-projects">Personal Projects ▾</a>
+      <div class="dropdown">
+        <a href="#PV">Home PV System</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <h1>Benjamin Brown</h1>
+    <img src="headshot.jpg" alt="Ben Brown" />
+    <p>Aloha, I'm Ben, a sophomore engineering student at Harvey Mudd College with an emphasis in environmental analysis. I'm passionate about using engineering to create sustainable solutions for climate change and other environmental challenges. I have strong experience in hands-on mechanical and electrical design and a proven track record collaborating in multidisciplinary teams, from fabricating precision hardware to configuring embedded sensor networks.</p>
+    <a href="https://linkedin.com/in/benbrown28" target="_blank">LinkedIn</a>
+    <a href="BenBrownCV.pdf" target="_blank">Download CV</a>
+  </div>
+
+  <!-- CLASS PROJECTS -->
+  <div id="class-projects" class="section-header">
+    <h1>Class Projects</h1>
+  </div>
+
+  <!-- E80 -->
+  <div id="E80" class="tab">
+    <h2>E80: Experimental Engineering</h2>
+    <h3>Autonomous Surface Vehicle (ASV) — Spring 2026</h3>
+    <img src="auv.jpg" alt="Autonomous Surface Vehicle" />
+    <p>Collaborated in a 4-person engineering team to design, construct, and field-test an autonomous underwater vehicle (AUV) to measure temperature, salinity and depth data at Dana Point Harbor, using a thermistor, custom salinity probe, and sonar transducer.</p>
+
+    <h4>Skills</h4>
+    <p>Analog Circuitry, Breadboarding, Arduino C++, MATLAB</p>
+
+    <h4>Goals</h4>
+    <img src="E80group.jpg" alt="Group Photo" />
+    <ul>
+      <li>Design and integrate a group of sensors capable of measuring environmental factors in the ocean.</li>
+      <li>Compare nearshore and offshore water measurements to identify environmental differences.</li>
+      <li>Validate the accuracy of low-cost custom sensors against established ground truths.</li>
+    </ul>
+
+    <h4>Methods</h4>
+    <img src="protoboard.jpg" alt="Protoboard" />
+    <ul>
+      <li><strong>Depth Measurement (Sonar):</strong> A waterproof speaker sent a 1 ms pulse (4kHz square wave) toward the ocean floor. An electret microphone captured the reflection, and the depth was calculated using the time-of-flight between the pulse and its echo alongside the speed of sound in seawater (1500 m/s).</li>
+      <li><strong>Salinity Measurement (Conductivity):</strong> A modified NEMA 1-15p wall plug acted as a probe to measure water resistance, which serves as a proxy for conductivity and salinity. To prevent corrosion, a 555 timer drove a 200Hz AC signal through the probe, and the resulting wave amplitude was processed via maximum and minimum voltage detectors.</li>
+      <li><strong>Temperature Measurement (Thermistor):</strong> A 47k thermistor was placed into a voltage divider circuit to convert temperature-dependent resistance changes into readable voltages. The output voltage was stabilized by a unity gain buffer and scaled by an inverting offset amplifier to match the input limits of the microcontroller.</li>
+      <li><strong>Data Logging and Processing:</strong> Data was captured via a Teensy microcontroller. Because the sonar echoes required high-frequency tracking, a specialized script (BurstADCSampler) was deployed to temporarily spike the sampling rate to ~200kHz for acoustic data, while default 10Hz sampling was used for temperature and salinity. Captured data was saved onto an SD card and analyzed using MATLAB and Excel.</li>
+      <li><strong>Sensor Calibration and Deployment:</strong> All custom sensors were calibrated using reference solutions, including explicit salt-to-water mass ratios for salinity and physical thermometer checks for temperature, to construct polynomial calibration curves. The integrated system was systematically validated in a controlled tank room and an athletic pool before being deployed on a surface-floating AUV at Dana Point Harbor.</li>
+    </ul>
+
+    <h4>Results</h4>
+    <img src="E80GroupWithPoster.jpg" alt="Group With Poster" />
+    <ul>
+      <li><strong>Environmental Trends:</strong> Custom temperature data successfully mapped a cooling gradient as the vehicle traveled away from the shore, while salinity levels remained completely uniform across both shallow and deep waters.</li>
+      <li><strong>Seabed Realities:</strong> The sonar system worked perfectly in flat-bottomed testing pools but struggled in the open harbor, revealing that uneven rocky seafloors scatter acoustic echoes rather than reflecting them cleanly back to the receiver.</li>
+      <li><strong>Hands-on Engineering:</strong> The core educational value came from designing and calibrating custom sensors from scratch — learning exactly how to transform physical environmental properties into analog voltages and digital data.</li>
+      <li><strong>Future Upgrades:</strong> The experience highlighted essential improvements for future designs, namely upgrading to non-corrosive metals, adding GPS positioning, and using advanced digital filtering to isolate acoustic echoes from ambient harbor noise.</li>
+    </ul>
+
+    <div class="project-links">
+      <a href="E80FinalReport.pdf" target="_blank">Project Writeup</a>
+      <a href="E80Poster.pdf" target="_blank">Project Poster</a>
+    </div>
+  </div>
+
+  <!-- E190 -->
+  <div id="E190" class="tab">
+    <h2>E190: Sustainability and Resiliency in the Built Environment</h2>
+    <h3>Florida Eco Resort Sustainability Masterplan — Fall 2025</h3>
+    <p>Collaborated in a 3-person consulting team to engineer environmental adaptations and financial strategies for a 40-acre upscale coastal resort located in a high-risk flood zone.</p>
+
+    <h4>Skills</h4>
+    <p>Hydrological Modeling (EPA SWC), Financial Modeling, Life Cycle Cost Analysis (LCCA), Net Present Value (NPV) Analysis, Multi-Hazard Resilience Engineering</p>
+
+    <h4>Goals</h4>
+    <ul>
+      <li>Mitigate flood and stormwater risks for a vulnerable 40-acre coastal hospitality property.</li>
+      <li>Develop economically viable green transit and renewable energy infrastructure strategies.</li>
+      <li>Design structural and mechanical defense frameworks against multi-hazard climate events.</li>
+    </ul>
+
+    <h4>Methods</h4>
+    <img src="EPASWC.png" alt="Stormwater Calculator Interface" />
+    <ul>
+      <li><strong>Hydrological Modeling:</strong> Evaluated site-specific hydrology using the EPA's National Stormwater Calculator to simulate rainfall and soil characteristics.</li>
+      <li><strong>Green Infrastructure Design:</strong> Modeled low-impact development (LID) features, such as permeable pavement and bioswales, to capture and manage stormwater on-site.</li>
+      <li><strong>Financial Modeling:</strong> Built comprehensive Excel models to execute economic trade-off analyses, comparing long-term financial viability across competing transit and energy scenarios.</li>
+      <li><strong>Investment Metrics:</strong> Calculated Net Present Value (NPV), Internal Rate of Return (IRR), and capital payback periods to back up sustainable recommendations with hard fiscal data.</li>
+      <li><strong>Resilience Frameworks:</strong> Formulated structural safety guidelines specifying elevated mechanical infrastructure and continuous load-path hurricane strapping to withstand high-velocity wind events.</li>
+      <li><strong>Environmental Health:</strong> Integrated industrial-grade HEPA HVAC filtration specifications into the mechanical design to safeguard indoor air quality against airborne hazards.</li>
+    </ul>
+
+    <h4>Results</h4>
+    <img src="RunnoffResults.png" alt="Runoff Reduction Graph" />
+    <ul>
+      <li><strong>Runoff Reduction:</strong> Proven LID infrastructure designs successfully cut baseline stormwater runoff volumes by 50%.</li>
+      <li><strong>Optimized CapEx:</strong> Delivered a clear, data-driven roadmap to the client, pairing the most aggressive sustainability options with realistic payback timelines and positive NPV metrics.</li>
+      <li><strong>Unified Defense:</strong> Standardized the resort's disaster readiness by combining structural, mechanical, and environmental protections into a single, cohesive multi-hazard resilience manual.</li>
+    </ul>
+
+    <div class="project-links">
+      <a href="SRBE_Group Project Master.pdf" target="_blank">Project Writeup</a>
+      <a href="Eco Resort Final Presentation.pdf" target="_blank">Project Presentation</a>
+    </div>
+  </div>
+
+  <!-- E4 -->
+  <div id="E4" class="tab">
+    <h2>E4: Intro to Engineering Design and Manufacturing</h2>
+    <h3>Compost Irrigation System — Fall 2025</h3>
+    <img src="CompostTitle.jpg" alt="Compost Irrigation System Prototyping" />
+    <p>Collaborated in a 5-person engineering team to design, prototype, and test an automated irrigation system for Sustainable Claremont's 4-ft compost piles, significantly reducing labor time and improving water distribution efficiency.</p>
+
+    <h4>Skills</h4>
+    <p>SolidWorks CAD, 3D Printing (Additive Manufacturing), PVC Fabrication, Fluid Distribution Design, Client Relations</p>
+
+    <h4>Goals</h4>
+    <ul>
+      <li>Streamline the labor-intensive hydration process for Sustainable Claremont's large-scale compost operations.</li>
+      <li>Optimize water efficiency by designing a delivery mechanism that penetrates deep into a 4-foot organic mass.</li>
+      <li>Manage the complete engineering design cycle from initial stakeholder constraints to a functional physical deliverable.</li>
+    </ul>
+
+    <h4>Methods</h4>
+    <img src="CompostCAD.png" alt="SolidWorks Assembly Model" />
+    <ul>
+      <li><strong>CAD Modeling:</strong> Developed detailed 3D part assemblies and technical drawings within SolidWorks to plan the structural layout and check spatial clearances.</li>
+      <li><strong>Structural Fabrication:</strong> Hand-fabricated a lightweight, rugged PVC plumbing frame designed to withstand high-moisture outdoor field environments.</li>
+      <li><strong>Fluid Mechanism Design:</strong> Engineered and rapid-prototyped a custom 3D-printed fluid distribution mechanism to uniformly disperse water throughout the pile core.</li>
+      <li><strong>Iterative Prototyping:</strong> Conducted rapid build-and-test loops, utilizing physical fluid testing to tune flow rates and refine nozzle positioning based on hydraulic feedback.</li>
+      <li><strong>Project Management:</strong> Led regular client meetings, managed stakeholder expectations, and hosted structured formal design reviews to pitch design revisions.</li>
+    </ul>
+
+    <h4>Results</h4>
+    <img src="CompostResults.jpg" alt="Field Testing at Sustainable Claremont" />
+    <ul>
+      <li><strong>Labor Efficiency:</strong> Successfully reduced manual watering time by approximately 2 hours per use, freeing up valuable volunteer resources.</li>
+      <li><strong>Resource Conservation:</strong> Measurably improved volumetric water efficiency, delivering targeted moisture directly to the bacterial core while minimizing surface runoff and evaporation.</li>
+      <li><strong>Client Adoption:</strong> Delivered a fully functional, user-friendly prototype directly to Sustainable Claremont, successfully meeting all community partner design criteria.</li>
+    </ul>
+
+    <div class="project-links">
+      <a href="E4FinalMemo.pdf" target="_blank">Final Prototype Memo</a>
+      <a href="CADBOMProcessRouter.pdf" target="_blank">CAD BOM and Process Router</a>
+      <a href="CompostPresentation.pdf" target="_blank">Presentation</a>
+    </div>
+
+    <h3 style="margin-top: 3rem;">Hammer Manufacturing Project — Fall 2025</h3>
+    <img src="E4Hammer.jpg" alt="Precision Manufactured Hammer" />
+    <p>Manufactured a precision steel hammer over 30+ hours to up to ±0.005 inch tolerance, executing the end-to-end machining workflow from raw metal stock to a finished product.</p>
+
+    <h4>Skills</h4>
+    <p>Manual Lathe, Vertical Mill, Geometric Dimensioning &amp; Tolerancing (GD&amp;T), Dimensional Control, Heat Treatment, Machining Workflow</p>
+
+    <h4>Goals</h4>
+    <ul>
+      <li>Develop foundational machine shop fluency and technical hands-on manufacturing competence.</li>
+      <li>Interpret complex technical drawings and strictly adhere to tight geometric dimensioning tolerances.</li>
+      <li>Master material transformation processes including stock cutting, precision material removal, and metallurgical hardening.</li>
+    </ul>
+
+    <h4>Methods</h4>
+    <ul>
+      <li><strong>Drawing Interpretation:</strong> Analyzed and decoded formal engineering drawings, mapping out sequential setups based on specified GD&amp;T rules and datums.</li>
+      <li><strong>Lathe Operations:</strong> Operated a manual lathe to turn down cylindrical stock, face surfaces, and cut precise radii and shoulders for the hammer handle and head assemblies.</li>
+      <li><strong>Vertical Milling:</strong> Controlled a vertical mill to square stock, machine clean parallel faces, and drill or counterbore interlocking components within strict positional limits.</li>
+      <li><strong>Dimensional Control:</strong> Implemented continuous in-process metrology using digital calipers and micrometers to verify dimensions and maintain a tight tolerance up to ±0.005 inches.</li>
+      <li><strong>Thermal Processing:</strong> Executed heat treatment processes on the steel tool head, safely managing heating cycles and quenching media to optimize material hardness and durability.</li>
+    </ul>
+
+    <h4>Results</h4>
+    <img src="HammerAssembly.png" alt="Hammer Assembly" />
+    <ul>
+      <li><strong>High-Precision Assembly:</strong> Successfully fabricated a fully interlocking steel hammer meeting all dimensional inspection requirements and tight geometric limits.</li>
+      <li><strong>Process Execution:</strong> Logged 30+ hours of mistake-free manual machining time, demonstrating disciplined shop floor safety and equipment mastery.</li>
+      <li><strong>Manufacturing Foundations:</strong> Gained an intuitive understanding of manufacturability, learning firsthand how drawing dimensions and tolerancing choices translate directly to the physical machining process.</li>
+    </ul>
+
+    <div class="project-links">
+      <a href="HammerProcessRouter.pdf" target="_blank">Process Router</a>
+      <a href="HammerDrawing.pdf" target="_blank">Technical Drawing</a>
+    </div>
+  </div>
+
+  <!-- E79 -->
+  <div id="E79" class="tab">
+    <h2>E79: Systems Engineering</h2>
+    <h3>Underwater Remotely Operated Vehicle (ROV) — Fall 2025</h3>
+    <img src="UnderwaterROV.png" alt="Underwater Remotely Operated Vehicle" />
+    <p>Worked with a partner to design, waterproof, and field-test an underwater Remotely Operated Vehicle (ROV) to simultaneously measure temperature and depth data at the Robert J. Bernard Biological Field Station.</p>
+
+    <h4>Skills</h4>
+    <p>Analog Circuitry, Soldering, Breadboarding, LabVIEW, Control Systems (P Control), Oscilloscope Diagnostics</p>
+
+    <h4>Goals</h4>
+    <ul>
+      <li>Design and robustly waterproof an underwater vehicle capable of vertical diving and submersion.</li>
+      <li>Develop custom electrical interfaces to reliably capture environmental data under changing water strata.</li>
+      <li>Implement a closed-loop control system to achieve stable depth targeting and steady vertical transit.</li>
+    </ul>
+
+    <h4>Methods</h4>
+    <img src="ROVMethod.png" alt="ROV Circuit and Simulation Layout" />
+    <ul>
+      <li><strong>Sensor Interface Development:</strong> Fabricated reliable hardware sensor interfaces by soldering an MPX5700 pressure sensor and an NXFT15XH103 thermistor directly to the project PCB.</li>
+      <li><strong>Prototyping &amp; Diagnostics:</strong> Utilized hardware-in-the-loop breadboard prototyping and dual-channel oscilloscope diagnostics to troubleshoot noise and verify signal integrity before final assembly.</li>
+      <li><strong>Control System Programming:</strong> Programmed a Proportional (P) control loop in LabVIEW to automate motor actuation and manage vertical depth tracking.</li>
+      <li><strong>Dynamic Simulation:</strong> Modeled and simulated the vertical vehicle physics within LabVIEW, validating system performance by dynamically modulating motor PWM duty cycles.</li>
+      <li><strong>Field Testing &amp; Deployment:</strong> Executed systematic waterproofing checks and deployed the integrated system into real-world field conditions at the biological field station.</li>
+    </ul>
+
+    <h4>Results</h4>
+    <img src="ROVResult.png" alt="ROV Deployment and Data Results" />
+    <ul>
+      <li><strong>Environmental Data Capture:</strong> Successfully gathered clean, reasonable depth and temperature profiles from the field station test site with zero water ingress.</li>
+      <li><strong>Depth Stability:</strong> Validated the motor control model, proving the LabVIEW P control loop effectively countered buoyant forces to hold targeted underwater depths.</li>
+      <li><strong>Systems Fluency:</strong> Gained hands-on competency across the full engineering cycle, bridging physical hydrodynamics, analog electronics, and real-time software controls.</li>
+    </ul>
+  </div>
+
+  <!-- PERSONAL PROJECTS -->
+  <div id="personal-projects" class="section-header">
+    <h1>Personal Projects</h1>
+  </div>
+
+  <div id="PV" class="tab">
+    <h2>Personal Project</h2>
+    <h3>Home PV System Project — Summer 2025</h3>
+    <p>Performed a data-driven renewable energy feasibility assessment for a residential property in Kailua, HI, executing structural layout design, solar performance simulation, and a full techno-economic analysis.</p>
+
+    <h4>Skills</h4>
+    <p>QGIS (Geospatial Analysis), AutoCAD, NREL PVWatts, Techno-Economic Analysis, Financial Modeling, Carbon Accounting</p>
+
+    <h4>Goals</h4>
+    <ul>
+      <li>Assess the spatial, structural, and energetic viability of installing a rooftop solar PV system.</li>
+      <li>Model the long-term financial lifecycle, capital payback milestones, and energy ROI of the array.</li>
+      <li>Quantify the localized environmental offset and carbon reduction potential of shifting to renewable power.</li>
+    </ul>
+
+    <h4>Methods</h4>
+    <img src="PVCAD.png" alt="QGIS Rooftop Analysis and AutoCAD Layout" />
+    <ul>
+      <li><strong>Geospatial Data Extraction:</strong> Utilized QGIS to extract exact rooftop geometries, pitch angles, shading profiles, and spatial data from satellite and geographic layers.</li>
+      <li><strong>Structural Design:</strong> Developed precise AutoCAD structural models to optimize solar panel placement, layout spacing, and orientation for maximum solar irradiance capture.</li>
+      <li><strong>Performance Simulation:</strong> Simulated monthly and annual system energy production by feeding site-specific metrics into the NREL PVWatts calculator.</li>
+      <li><strong>Techno-Economic Modeling:</strong> Built a financial framework evaluating localized utility tier rates, upfront capital expenditures (CapEx), and operational costs to compute investment metrics.</li>
+      <li><strong>Environmental Impact Assessment:</strong> Conducted a carbon accounting analysis to calculate grid-displacement metrics and determine the exact environmental offset of the proposed system.</li>
+    </ul>
+
+    <h4>Results</h4>
+    <img src="PVResults.png" alt="Solar Investment Payback Curve" />
+    <ul>
+      <li><strong>Financial Feasibility:</strong> Proven economic viability with a highly attractive, optimized 6-year payback period followed by net-positive utility savings.</li>
+      <li><strong>Carbon Offset Metrics:</strong> Validated a significant environmental benefit, estimating a net annual reduction of 2,071 kg of CO₂ emissions.</li>
+      <li><strong>Deployment Readiness:</strong> Produced a robust, investment-grade feasibility report ready to serve as a blueprint for hardware procurement and permitting.</li>
+    </ul>
+
+    <div class="project-links">
+      <a href="PVWriteup.pdf" target="_blank">Feasibility Assessment Report</a>
+    </div>
+  </div>
+
+</body>
+</html>
