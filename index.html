@@ -230,7 +230,27 @@
       border-top: 1px dashed var(--border);
       margin: 3rem 0;
     }
+    footer {
+    max-width: 900px;
+    margin: 4rem auto 0;
+    padding: 2rem;
+    border-top: 2px solid var(--border);
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.9rem;
+    }
+    .nav-right {
+    margin-left: auto;
+    }
 
+footer a {
+  color: var(--muted);
+}
+
+footer a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
   </style>
 </head>
 <body id="top">
@@ -254,16 +274,18 @@
         <a href="#PV">Home PV System</a>
       </div>
     </div>
+    <a href="#contact" class="nav-right">Contact</a>
   </nav>
 
   <!-- HERO -->
   <div class="hero">
     <h1>Benjamin Brown</h1>
     <img src="headshot.jpg" alt="Ben Brown" />
-    <p>Aloha, I'm Ben, a rising junior engineering student at Harvey Mudd College with an emphasis in environmental analysis. I'm passionate about using engineering to create sustainable solutions for climate change and other environmental challenges. I have strong experience in hands-on mechanical and electrical design and a proven track record collaborating in multidisciplinary teams, from fabricating precision hardware to configuring embedded sensor networks.</p>
-    <p>Growing up in Hawai'i, I fell in love with the outdoors and the ocean. I love surfing, hiking and spending time outside. These passions have inspired the problems I want to solve in my career.</p>
-    <a href="https://linkedin.com/in/benbrown28" target="_blank">LinkedIn</a>
+    <p>Aloha, I'm Ben, an engineering student at Harvey Mudd College with an emphasis in environmental analysis. I care about building things holistically, from circuit design and mechanical prototyping to software and real-world deployment, I want that work to have a positive impact. My interests are in ocean systems, climate resilience, and renewable energy.</p>
+
+    <p>Growing up in Kailua, Hawai'i gave me an early relationship with nature and surfing, hiking, and spending time on the water are part of how I grew up. That connection is why I gravitate toward projects that don't just work in a lab, but go into the field. My most recent project, an AUV deployed at Dana Point Harbor, reflects this. The range of my projects reflects that I am still exploring my interests but the thread running through all of them is the same: create something that has a sustainable impact on the world.</p>
     <a href="BenBrownCV.pdf" target="_blank">Download CV</a>
+    <a href="#contact">Contact</a>
   </div>
 
   <!-- CLASS PROJECTS -->
@@ -514,6 +536,13 @@
       <a href="PVWriteup.pdf" target="_blank">Feasibility Assessment Report</a>
     </div>
   </div>
-
+<footer id="contact">
+  <p style="margin-bottom: 0.5rem; font-size: 1.1rem; color: var(--text);">Get in touch</p>
+  <p>
+    <a href="mailto:bebrown@hmc.edu">bebrown@hmc.edu</a> ·
+    <a href="https://linkedin.com/in/benbrown28" target="_blank">LinkedIn</a> ·
+    <a href="BenBrownCV.pdf" target="_blank">CV</a>
+  </p>
+</footer>
 </body>
 </html>
