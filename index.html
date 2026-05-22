@@ -194,7 +194,6 @@
     .tab img {
       width: 100%;
       max-width: 560px;
-      
       object-fit: cover;
       border-radius: 4px;
       border: 1px solid var(--border);
@@ -225,6 +224,13 @@
       text-decoration: none;
     }
 
+    /* ── DIVIDER BETWEEN PROJECTS IN SAME COURSE ── */
+    .project-divider {
+      border: none;
+      border-top: 1px dashed var(--border);
+      margin: 3rem 0;
+    }
+
   </style>
 </head>
 <body id="top">
@@ -237,9 +243,9 @@
       <div class="dropdown">
         <a href="#E80">Autonomous Surface Vehicle (ASV)</a>
         <a href="#E190">Florida Eco Resort Sustainability Masterplan</a>
-        <a href="#E4 Compost">Sustainable Compost Irrigation System</a>
-        <a href="E4 Hammer">Hammer Manufacturing Project</a>
-        <a href="#E79">Remotely Operated Vehical (ROV)</a>
+        <a href="#E4-Compost">Sustainable Compost Irrigation System</a>
+        <a href="#E4-Hammer">Hammer Manufacturing Project</a>
+        <a href="#E79">Remotely Operated Vehicle (ROV)</a>
       </div>
     </div>
     <div class="nav-item">
@@ -255,7 +261,7 @@
     <h1>Benjamin Brown</h1>
     <img src="headshot.jpg" alt="Ben Brown" />
     <p>Aloha, I'm Ben, a rising junior engineering student at Harvey Mudd College with an emphasis in environmental analysis. I'm passionate about using engineering to create sustainable solutions for climate change and other environmental challenges. I have strong experience in hands-on mechanical and electrical design and a proven track record collaborating in multidisciplinary teams, from fabricating precision hardware to configuring embedded sensor networks.</p>
-    <p>Growing up in Hawai'i, I fell in love with the outdoors and the ocean. I love surfing, hiking and spending time outside. These passions have inspired the problems I want to solve in my career. </p>
+    <p>Growing up in Hawai'i, I fell in love with the outdoors and the ocean. I love surfing, hiking and spending time outside. These passions have inspired the problems I want to solve in my career.</p>
     <a href="https://linkedin.com/in/benbrown28" target="_blank">LinkedIn</a>
     <a href="BenBrownCV.pdf" target="_blank">Download CV</a>
   </div>
@@ -303,8 +309,8 @@
     </ul>
 
     <div class="project-links">
-      <a href="E80FinalReport.pdf" target="_blank">Project Writeup</a>
-      <a href="E80Poster.pdf" target="_blank">Project Poster</a>
+      <a href="E80FinalReport.pdf">Project Writeup</a>
+      <a href="E80Poster.pdf">Project Poster</a>
     </div>
   </div>
 
@@ -344,14 +350,14 @@
     </ul>
 
     <div class="project-links">
-      <a href="SRBEWriteup.pdf" target="_blank">Project Writeup</a>
-      <a href="Eco Resort Final Presentation.pdf" target="_blank">Project Presentation</a>
+      <a href="SRBEWriteup.pdf">Project Writeup</a>
+      <a href="Eco Resort Final Presentation.pdf">Project Presentation</a>
     </div>
   </div>
 
-  <!-- E4 -->
+  <!-- E4 — both projects share one tab, separated by a dashed divider -->
+  <div id="E4-Compost" class="tab">
     <h2>E4: Intro to Engineering Design and Manufacturing</h2>
- <div id="E4 Compost" class="tab">
     <h3>Compost Irrigation System — Fall 2025</h3>
     <img src="CompostTitle.jpg" alt="Compost Irrigation System Prototyping" />
     <p>Collaborated in a 5-person engineering team to design, prototype, and test an automated irrigation system for Sustainable Claremont's 4-ft compost piles, significantly reducing labor time and improving water distribution efficiency.</p>
@@ -385,12 +391,15 @@
     </ul>
 
     <div class="project-links">
-      <a href="E4FinalMemo.pdf" target="_blank">Final Prototype Memo</a>
-      <a href="CADBOMProcessRouter.pdf" target="_blank">CAD BOM and Process Router</a>
-      <a href="CompostPresentation.pdf" target="_blank">Presentation</a>
+      <a href="E4FinalMemo.pdf">Final Prototype Memo</a>
+      <a href="CADBOMProcessRouter.pdf">CAD BOM and Process Router</a>
+      <a href="CompostPresentation.pdf">Presentation</a>
     </div>
-<div id="E4 Hammer" class="tab">
-    <h3 style="margin-top: 3rem;">Hammer Manufacturing Project — Fall 2025</h3>
+
+    <!-- dashed line between the two E4 projects -->
+    <hr id="E4-Hammer" class="project-divider" />
+    <h2>E4: Intro to Engineering Design and Manufacturing</h2>
+    <h3>Hammer Manufacturing Project — Fall 2025</h3>
     <img src="E4Hammer.jpg" alt="Precision Manufactured Hammer" />
     <p>Manufactured a precision steel hammer over 30+ hours to up to ±0.005 inch tolerance, executing the end-to-end machining workflow from raw metal stock to a finished product.</p>
 
@@ -422,8 +431,8 @@
     </ul>
 
     <div class="project-links">
-      <a href="HammerProcessRouter.pdf" target="_blank">Process Router</a>
-      <a href="HammerDrawing.pdf" target="_blank">Technical Drawing</a>
+      <a href="HammerProcessRouter.pdf">Process Router</a>
+      <a href="HammerDrawing.pdf">Technical Drawing</a>
     </div>
   </div>
 
@@ -447,7 +456,7 @@
     <h4>Methods</h4>
     <img src="ROVMethod.png" alt="ROV Circuit and Simulation Layout" />
     <ul>
-      <li><strong>Sensor Interface Development:</strong> Fabricated reliable hardware sensor interfaces by soldered an MPX5700 pressure sensor and an NXFT15XH103 thermistor directly to the project PCB.</li>
+      <li><strong>Sensor Interface Development:</strong> Fabricated reliable hardware sensor interfaces by soldering an MPX5700 pressure sensor and an NXFT15XH103 thermistor directly to the project PCB.</li>
       <li><strong>Prototyping &amp; Diagnostics:</strong> Utilized hardware-in-the-loop breadboard prototyping and dual-channel oscilloscope diagnostics to troubleshoot noise and verify signal integrity before final assembly.</li>
       <li><strong>Control System Programming:</strong> Programmed a Proportional (P) control loop in LabVIEW to automate motor actuation and manage vertical depth tracking.</li>
       <li><strong>Dynamic Simulation:</strong> Modeled and simulated the vertical vehicle physics within LabVIEW, validating system performance by dynamically modulating motor PWM duty cycles.</li>
@@ -469,6 +478,7 @@
   </div>
 
   <div id="PV" class="tab">
+    <h2>Personal Project</h2>
     <h3>Home PV System Project — Summer 2025</h3>
     <p>Performed a data-driven renewable energy feasibility assessment for a residential property in Kailua, HI, executing structural layout design, solar performance simulation, and a full techno-economic analysis.</p>
 
@@ -501,7 +511,7 @@
     </ul>
 
     <div class="project-links">
-      <a href="PVWriteup.pdf" target="_blank">Feasibility Assessment Report</a>
+      <a href="PVWriteup.pdf">Feasibility Assessment Report</a>
     </div>
   </div>
 
