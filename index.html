@@ -281,9 +281,9 @@ footer a:hover {
   <div class="hero">
     <h1>Benjamin Brown</h1>
     <img src="headshot.jpg" alt="Ben Brown" />
-    <p>Aloha, I'm Ben, an engineering student at Harvey Mudd College with an emphasis in environmental analysis. I care about building things holistically, from circuit design and mechanical prototyping to software and real-world deployment, I want that work to have a positive impact. My interests are in ocean systems, climate resilience, and renewable energy.</p>
+    <p>Aloha, I'm Ben, an engineering student at Harvey Mudd College with an emphasis in environmental analysis. I care about building things holistically, from circuit design and mechanical prototyping to software and real-world deployment, I want my work to have a positive impact. My interests are in ocean systems, climate resilience, and renewable energy.</p>
 
-    <p>Growing up in Kailua, Hawai'i gave me an early relationship with nature and surfing, hiking, and spending time on the water are part of how I grew up. That connection is why I gravitate toward projects that don't just work in a lab, but go into the field. My most recent project, an AUV deployed at Dana Point Harbor, reflects this. The range of my projects reflects that I am still exploring my interests but the thread running through all of them is the same: create something that has a sustainable impact on the world.</p>
+    <p>Growing up in Kailua, Hawai'i gave me an early relationship with nature. Surfing, hiking, and running are part of how I grew up. That connection is why I gravitate toward projects that don't just work in a lab, but go into the field. The range of my projects reflects that I am still exploring my interests within engineering and sustainability, but the thread running through all of them is the same: create something that has a sustainable impact on the world.</p>
     <a href="BenBrownCV.pdf" target="_blank">Download CV</a>
     <a href="#contact">Contact</a>
   </div>
@@ -298,13 +298,14 @@ footer a:hover {
     <h2>E80: Experimental Engineering</h2>
     <h3>Autonomous Surface Vehicle (ASV) — Spring 2026</h3>
     <img src="auv.jpg" alt="Autonomous Surface Vehicle" />
-    <p>Collaborated in a 4-person engineering team to design, construct, and field-test an autonomous underwater vehicle (AUV) to measure temperature, salinity and depth data at Dana Point Harbor, using a thermistor, custom salinity probe, and sonar transducer.</p>
+    <p> In this project, I collaborated in a 4-person engineering team to design, construct, and field-test an autonomous surface vehicle (ASV) to measure temperature, salinity and depth data at Dana Point Harbor in Southern California. We measured temperature using a thermistor, measured salinity using a custom conductivity probe and measured depth using a two part speaker and microphone sonar system.</p>
 
     <h4>Skills</h4>
     <p>Analog Circuitry, Breadboarding, Arduino C++, MATLAB</p>
 
     <h4>Goals</h4>
     <img src="e80group.jpg" alt="Group Photo" />
+    <p> Our goals for this project were to:</p>
     <ul>
       <li>Design and integrate a group of sensors capable of measuring environmental factors in the ocean.</li>
       <li>Compare nearshore and offshore water measurements to identify environmental differences.</li>
@@ -317,8 +318,8 @@ footer a:hover {
       <li><strong>Depth Measurement (Sonar):</strong> A waterproof speaker sent a 1 ms pulse (4kHz square wave) toward the ocean floor. An electret microphone captured the reflection, and the depth was calculated using the time-of-flight between the pulse and its echo alongside the speed of sound in seawater (1500 m/s).</li>
       <li><strong>Salinity Measurement (Conductivity):</strong> A modified NEMA 1-15p wall plug acted as a probe to measure water resistance, which serves as a proxy for conductivity and salinity. To prevent corrosion, a 555 timer drove a 200Hz AC signal through the probe, and the resulting wave amplitude was processed via maximum and minimum voltage detectors.</li>
       <li><strong>Temperature Measurement (Thermistor):</strong> A 47k thermistor was placed into a voltage divider circuit to convert temperature-dependent resistance changes into readable voltages. The output voltage was stabilized by a unity gain buffer and scaled by an inverting offset amplifier to match the input limits of the microcontroller.</li>
-      <li><strong>Data Logging and Processing:</strong> Data was captured via a Teensy microcontroller. Because the sonar echoes required high-frequency tracking, a specialized script (BurstADCSampler) was deployed to temporarily spike the sampling rate to ~200kHz for acoustic data, while default 10Hz sampling was used for temperature and salinity. Captured data was saved onto an SD card and analyzed using MATLAB and Excel.</li>
-      <li><strong>Sensor Calibration and Deployment:</strong> All custom sensors were calibrated using reference solutions, including explicit salt-to-water mass ratios for salinity and physical thermometer checks for temperature, to construct polynomial calibration curves. The integrated system was systematically validated in a controlled tank room and an athletic pool before being deployed on a surface-floating AUV at Dana Point Harbor.</li>
+      <li><strong>Data Logging and Processing:</strong> Data was captured via a Teensy microcontroller. Because the sonar echoes required high-frequency tracking, a specialized script was deployed to temporarily spike the sampling rate to ~200kHz for acoustic data, while default 10Hz sampling was used for temperature and salinity. Captured data was saved onto an SD card and analyzed using MATLAB and Excel.</li>
+      <li><strong>Sensor Calibration and Deployment:</strong> All custom sensors were calibrated using reference solutions, including explicit salt-to-water mass ratios for salinity and physical thermometer checks for temperature, to construct polynomial calibration curves. The integrated system was systematically validated in a controlled tank room and an athletic pool before being deployed at Dana Point Harbor.</li>
     </ul>
 
     <h4>Results</h4>
@@ -326,10 +327,11 @@ footer a:hover {
     <ul>
       <li><strong>Environmental Trends:</strong> Custom temperature data successfully mapped a cooling gradient as the vehicle traveled away from the shore, while salinity levels remained completely uniform across both shallow and deep waters.</li>
       <li><strong>Seabed Realities:</strong> The sonar system worked perfectly in flat-bottomed testing pools but struggled in the open harbor, revealing that uneven rocky seafloors scatter acoustic echoes rather than reflecting them cleanly back to the receiver.</li>
-      <li><strong>Hands-on Engineering:</strong> The core educational value came from designing and calibrating custom sensors from scratch — learning exactly how to transform physical environmental properties into analog voltages and digital data.</li>
-      <li><strong>Future Upgrades:</strong> The experience highlighted essential improvements for future designs, namely upgrading to non-corrosive metals, adding GPS positioning, and using advanced digital filtering to isolate acoustic echoes from ambient harbor noise.</li>
+      <li><strong>Hands-on Engineering:</strong> I learned a lot about how environmental measurements are taken by designing and calibrating custom sensors from scratch.</li>
+      <li><strong>Future Upgrades:</strong> Upgrading to non-corrosive metals, adding GPS positioning, and using advanced digital filtering to isolate acoustic echoes from ambient harbor noise.</li>
     </ul>
 
+    <h4> Read more</h4>
     <div class="project-links">
       <a href="E80FinalReport.pdf" target="_blank">Project Writeup</a>
       <a href="E80Poster.pdf" target="_blank">Project Poster</a>
@@ -340,12 +342,13 @@ footer a:hover {
   <div id="E190" class="tab">
     <h2>E190: Sustainability and Resiliency in the Built Environment</h2>
     <h3>Florida Eco Resort Sustainability Masterplan — Spring 2026</h3>
-    <p>Collaborated in a 3-person consulting team to engineer environmental adaptations and financial strategies for a 40-acre upscale coastal resort located in a high-risk flood zone.</p>
+    <p> In this project, I collaborated in a 3-person consulting team to engineer environmental adaptations and financial strategies for a 40-acre upscale coastal resort located in a high-risk flood zone.</p>
 
     <h4>Skills</h4>
-    <p>Hydrological Modeling (EPA SWC), Financial Modeling, Life Cycle Cost Analysis (LCCA), Net Present Value (NPV) Analysis, Multi-Hazard Resilience Engineering</p>
+    <p>Hydrological Modeling (EPA Storm Water Calculator), Financial Modeling, Life Cycle Cost Analysis (LCCA), Net Present Value (NPV) Analysis</p>
 
     <h4>Goals</h4>
+    <p> Our goals were to:</p>
     <ul>
       <li>Mitigate flood and stormwater risks for a vulnerable 40-acre coastal hospitality property.</li>
       <li>Develop economically viable green transit and renewable energy infrastructure strategies.</li>
@@ -366,11 +369,11 @@ footer a:hover {
     <h4>Results</h4>
     <img src="RunnoffResults.png" alt="Runoff Reduction Graph" />
     <ul>
-      <li><strong>Runoff Reduction:</strong> Proven LID infrastructure designs successfully cut baseline stormwater runoff volumes by 50%.</li>
-      <li><strong>Optimized CapEx:</strong> Delivered a clear, data-driven roadmap to the client, pairing the most aggressive sustainability options with realistic payback timelines and positive NPV metrics.</li>
+      <li><strong>Runoff Reduction:</strong> Proven LID infrastructure designs successfully cut baseline stormwater runnoff.</li>
+      <li><strong>Optimized Spending:</strong> Delivered a clear, data-driven roadmap to the client, pairing the most aggressive sustainability options with realistic payback timelines and positive NPV metrics.</li>
       <li><strong>Unified Defense:</strong> Standardized the resort's disaster readiness by combining structural, mechanical, and environmental protections into a single, cohesive multi-hazard resilience manual.</li>
     </ul>
-
+    <h4>Read more</h4>
     <div class="project-links">
       <a href="SRBEWriteup.pdf" target="_blank">Project Writeup</a>
       <a href="Eco Resort Final Presentation.pdf" target="_blank">Project Presentation</a>
@@ -382,24 +385,25 @@ footer a:hover {
     <h2>E4: Intro to Engineering Design and Manufacturing</h2>
     <h3>Compost Irrigation System — Fall 2025</h3>
     <img src="CompostTitle.jpg" alt="Compost Irrigation System Prototyping" />
-    <p>Collaborated in a 5-person engineering team to design, prototype, and test an automated irrigation system for Sustainable Claremont's 4-ft compost piles, significantly reducing labor time and improving water distribution efficiency.</p>
+    <p>In this project, I worked in a 5-person engineering team to design, prototype, and test an automated irrigation system for Sustainable Claremont's 4-ft compost piles, significantly reducing labor time and improving water distribution efficiency.</p>
 
     <h4>Skills</h4>
-    <p>SolidWorks CAD, 3D Printing (Additive Manufacturing), PVC Fabrication, Fluid Distribution Design, Client Relations</p>
+    <p>SolidWorks CAD, 3D Printing, PVC Fabrication, Fluid Distribution Design, Client Relations</p>
 
     <h4>Goals</h4>
+    <p> The goals of this project were to:</p>
     <ul>
-      <li>Streamline the labor-intensive hydration process for Sustainable Claremont's large-scale compost operations.</li>
-      <li>Optimize water efficiency by designing a delivery mechanism that penetrates deep into a 4-foot organic mass.</li>
+      <li>Streamline the labor-intensive watering process for Sustainable Claremont's compost piles</li>
+      <li>Optimize water efficiency by designing a watering mechanism that penetrates deep into a 4-foot organic mass.</li>
       <li>Manage the complete engineering design cycle from initial stakeholder constraints to a functional physical deliverable.</li>
     </ul>
 
     <h4>Methods</h4>
     <img src="CompostCAD.png" alt="SolidWorks Assembly Model" />
     <ul>
-      <li><strong>CAD Modeling:</strong> Developed detailed 3D part assemblies and technical drawings within SolidWorks to plan the structural layout and check spatial clearances.</li>
+      <li><strong>CAD Modeling:</strong> Developed detailed 3D part assemblies and technical drawings within SolidWorks to plan the structural layout.</li>
       <li><strong>Structural Fabrication:</strong> Hand-fabricated a lightweight, rugged PVC plumbing frame designed to withstand high-moisture outdoor field environments.</li>
-      <li><strong>Fluid Mechanism Design:</strong> Engineered and rapid-prototyped a custom 3D-printed fluid distribution mechanism to uniformly disperse water throughout the pile core.</li>
+      <li><strong>Fluid Mechanism Design:</strong> Engineered and rapid-prototyped multiple iterations of a custom 3D-printed fluid distribution mechanism to uniformly disperse water throughout the pile.</li>
       <li><strong>Iterative Prototyping:</strong> Conducted rapid build-and-test loops, utilizing physical fluid testing to tune flow rates and refine nozzle positioning based on hydraulic feedback.</li>
       <li><strong>Project Management:</strong> Led regular client meetings, managed stakeholder expectations, and hosted structured formal design reviews to pitch design revisions.</li>
     </ul>
@@ -411,7 +415,7 @@ footer a:hover {
       <li><strong>Resource Conservation:</strong> Measurably improved volumetric water efficiency, delivering targeted moisture directly to the bacterial core while minimizing surface runoff and evaporation.</li>
       <li><strong>Client Adoption:</strong> Delivered a fully functional, user-friendly prototype directly to Sustainable Claremont, successfully meeting all community partner design criteria.</li>
     </ul>
-
+    <h4>Read more</h4>
     <div class="project-links">
       <a href="E4FinalMemo.pdf" target="_blank">Final Prototype Memo</a>
       <a href="CADBOMProcessRouter.pdf" target="_blank">CAD BOM and Process Router</a>
@@ -423,7 +427,7 @@ footer a:hover {
     <h2>E4: Intro to Engineering Design and Manufacturing</h2>
     <h3>Hammer Manufacturing Project — Fall 2025</h3>
     <img src="E4Hammer.jpg" alt="Precision Manufactured Hammer" />
-    <p>Manufactured a precision steel hammer over 30+ hours to up to ±0.005 inch tolerance, executing the end-to-end machining workflow from raw metal stock to a finished product.</p>
+    <p>In this project I spent over 30 hours manufacturing a precision steel hammer to up to ±0.005 inch tolerance starting from raw stock. I became comfortable in the machine shop and gained experience using the manual lathe, vertical mill and sanding tools.</p>
 
     <h4>Skills</h4>
     <p>Manual Lathe, Vertical Mill, Geometric Dimensioning &amp; Tolerancing (GD&amp;T), Dimensional Control, Heat Treatment, Machining Workflow</p>
@@ -451,7 +455,7 @@ footer a:hover {
       <li><strong>Process Execution:</strong> Logged 30+ hours of mistake-free manual machining time, demonstrating disciplined shop floor safety and equipment mastery.</li>
       <li><strong>Manufacturing Foundations:</strong> Gained an intuitive understanding of manufacturability, learning firsthand how drawing dimensions and tolerancing choices translate directly to the physical machining process.</li>
     </ul>
-
+    <h4>Read more</h4>
     <div class="project-links">
       <a href="HammerProcessRouter.pdf" target="_blank">Process Router</a>
       <a href="HammerDrawing.pdf" target="_blank">Technical Drawing</a>
@@ -463,7 +467,7 @@ footer a:hover {
     <h2>E79: Systems Engineering</h2>
     <h3>Underwater Remotely Operated Vehicle (ROV) — Fall 2025</h3>
     <img src="UnderwaterROV.png" alt="Underwater Remotely Operated Vehicle" />
-    <p>Worked with a partner to design, waterproof, and field-test an underwater Remotely Operated Vehicle (ROV) to simultaneously measure temperature and depth data at the Robert J. Bernard Biological Field Station.</p>
+    <p> In this class project, I worked with a partner to design, waterproof, and field-test an underwater Remotely Operated Vehicle (ROV) to simultaneously measure temperature and depth data at the Robert J. Bernard Biological Field Station.</p>
 
     <h4>Skills</h4>
     <p>Analog Circuitry, Soldering, Breadboarding, LabVIEW, Control Systems (P Control), Oscilloscope Diagnostics</p>
@@ -502,7 +506,7 @@ footer a:hover {
   <div id="PV" class="tab">
     <h2>Personal Project</h2>
     <h3>Home PV System Project — Summer 2025</h3>
-    <p>Performed a data-driven renewable energy feasibility assessment for a residential property in Kailua, HI, executing structural layout design, solar performance simulation, and a full techno-economic analysis.</p>
+    <p>In this summer project, I performed a data-driven renewable energy feasibility assessment for a residential property in Kailua, HI, executing structural layout design, solar performance simulation, and a full techno-economic analysis.</p>
 
     <h4>Skills</h4>
     <p>QGIS (Geospatial Analysis), AutoCAD, NREL PVWatts, Techno-Economic Analysis, Financial Modeling, Carbon Accounting</p>
@@ -531,7 +535,7 @@ footer a:hover {
       <li><strong>Carbon Offset Metrics:</strong> Validated a significant environmental benefit, estimating a net annual reduction of 2,071 kg of CO₂ emissions.</li>
       <li><strong>Deployment Readiness:</strong> Produced a robust, investment-grade feasibility report ready to serve as a blueprint for hardware procurement and permitting.</li>
     </ul>
-
+    <h4> Read more</h4>
     <div class="project-links">
       <a href="PVWriteup.pdf" target="_blank">Feasibility Assessment Report</a>
     </div>
